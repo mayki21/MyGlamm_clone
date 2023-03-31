@@ -1,0 +1,33 @@
+#a{
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:35px;
+    /* margin-top: 30px; */
+
+    
+}
+#a img{
+ width:100%;
+
+}
+#a>div{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    width: 80%;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+#a h4,p,h2{
+    text-align: center;
+}
+#a button
+{
+    background-color: rgba(244, 91, 116, 0.93);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    display: block;
+    margin: auto;    
+
+}
