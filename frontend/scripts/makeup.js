@@ -1,19 +1,20 @@
 let box=document.getElementById("a")
 
-
+let newarr=[];
 fetch("http://localhost:8080/makeup")
 .then((res)=>{
     return res.json()
 })
 .then((data)=>{
-console.log(data)
+// console.log(data)
 display(data)
+newarr=data;
 })
 .catch((err)=>{
     console.log(err)
 })
 
-
+console.log(`newarr: ${newarr}`);
 function display(data){
     box.innerHTML=""
     data.map((el)=>{
@@ -29,7 +30,49 @@ function display(data){
         let btn=document.createElement("button")
         btn.innerText="Add To Cart"
 
+        btn.addEventListener('click',function(){
+            let token=localStorage.getItem("token")
+            if(token)
+            {
+                fetch("http://localhost:8080/cart/post",{
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json",
+                        "Authorization":`${localStorage.getItem("token")}`
+                    },
+                    body:JSON.stringify(el)
+                })
+                .then((res)=>{
+                    return res.json()
+                })
+                .then((data)=>{
+                    if(data.msg=="Data already present")
+                    {
+                        alert("Product already in cart")
+                    }
+                    else
+                    {
+                        console.log(data)
+                        alert("Product added to Cart")
+                    }
+                 
+    
+                })
+                .catch((err)=>{
+                    console.log(err.message)
+                })
+            }
+            else
+            {
+                alert("kindly login first")
+            }
+            
+        })
+
+       
         div.append(img,name,description,price,btn)
         box.append(div)
     })
 }
+
+

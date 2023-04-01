@@ -226,6 +226,10 @@ i {
 .ac>i {
     color: grey;
 }
+.flex cart
+{
+    border: 1px solid black;
+}
 
 .cart {
     align-items: flex-end;
@@ -459,4 +463,8 @@ i {
 }
 .slider2 h3,h4,p{
     text-align: center;
+}
+.login
+{
+    margin-right:60px;
 }

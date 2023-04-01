@@ -29,13 +29,13 @@ userRouter.post("/login",async (req,res)=>{
     const data=await userModel.findOne({email})
     if(data)
     {
-        bcrypt.compare(password,data.password,async(err,result)=>{
+        bcrypt.compare(password,data.password,async (err,result)=>{
             if(result)
             {
-                res.status(200).send({"msg":"Login Successfull","token":jwt.sign({userID:data._id},"kiran",{expiresIn:"6h"})})
+                res.status(200).send({"msg":"Login Successfull","token":jwt.sign({userID:data._id},"kiran",{expiresIn:"6h"}),"userdetail":data})
             }
             else{
-                res.status.apply(404).send({"msg":"wrong credentials"})
+                res.status(404).send({"msg":"wrong credentials"})
             }
         })
     }
