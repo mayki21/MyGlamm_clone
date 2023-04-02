@@ -1,5 +1,6 @@
 let box=document.getElementById("a")
 
+
 let newarr=[];
 fetch("http://localhost:8080/makeup")
 .then((res)=>{
@@ -8,12 +9,34 @@ fetch("http://localhost:8080/makeup")
 .then((data)=>{
 // console.log(data)
 display(data)
+bar(data)
 newarr=data;
 })
 .catch((err)=>{
     console.log(err)
 })
 
+function bar()
+{
+    // let searchbar=document.getElementById("search")
+    let search = document.getElementById("search");
+    search.addEventListener("input", (e) => {
+      e.preventDefault();
+      const value = e.target.value;
+    
+      let newArr = data.filter(element => {
+    
+        return element.name.toLowerCase().includes(value)
+    
+      })
+    //   console.log(data)
+      display(newArr)
+    
+    })
+}
+
+
+// console.log(data)
 console.log(`newarr: ${newarr}`);
 function display(data){
     box.innerHTML=""
@@ -76,3 +99,18 @@ function display(data){
 }
 
 
+
+// function sort(data)
+// {
+  
+// }
+// let btnltoh=document.getElementById("lowtohigh")
+// btnltoh.addEventListener('click',()=>{
+//     let sorted=newarr.sort((a,b)=>{
+//         return a.actualPrice-b.actualPrice
+
+//       })
+//     //   return data
+//       display(sorted)
+
+// })

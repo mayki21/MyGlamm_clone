@@ -1,0 +1,227 @@
+* {
+    font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* nav-bar */
+
+header {
+    top: 0;
+    position: sticky;
+    background-color: white;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    height: 100px;
+    padding: 0px 75px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#leftNav {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: space-between;
+
+}
+
+#leftNav>img {
+    height: 50%;
+}
+
+nav>#leftNav>h3:hover {
+    cursor: pointer;
+}
+
+#rightNav {
+    display: flex;
+    align-items: center;
+    width: 15%;
+    justify-content: space-between;
+}
+
+#rightNav>img {
+    height: 50%;
+}
+
+nav>#rightNav>h3:hover {
+    cursor: pointer;
+}
+
+#container {
+    display: flex; 
+    width: 80%;
+    margin: 5% auto;
+    justify-content: space-around; 
+}
+
+/* credit card detail */
+
+.credicard {
+    width: 50%;
+    background-color: white;
+}
+
+.upper {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 20px;    
+}
+
+.creditdebit {
+    color: black;
+    font-size: 15px;
+}
+
+.addnew {
+    color: grey;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.cardnamee {
+    color: grey;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+input::placeholder {
+    color: grey;
+}
+
+.all {
+    margin-top: 20px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin-left: 20px;
+    outline: none;
+}
+
+#datediv>input {
+    width: 30px;
+}
+
+.expisc {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.expiry {
+    color: grey;
+    font-size: 12px;
+    /* margin-top: 20px; */
+    margin-left: 20px;
+}
+
+#slash {
+    margin-left: 10px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    margin-right: -10px;
+}
+
+.securitycode {
+    color: grey;
+    font-size: 12px;
+    /* margin-top: 20px; */
+    margin-left: 175px;
+    width: 100px;
+}
+
+.namecard {
+    display: flex;
+    height: 5%;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    margin-left: 134px;
+}
+
+.infor {
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 13px;
+    width: 90%;
+}
+
+.makepayment {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#paymentmake {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: #e1405ea5;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+
+/* total price */
+
+.checkout {
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+    margin-top: 50px;
+    width: 100%;
+}
+
+
+.right {
+    width: 40%;
+}
+
+.checkoutbut {
+    width: 80%;
+    margin: auto;
+    background-color: #dc4661a0;
+    font-size: 20px;
+    width: 80%;
+    color: white;
+    text-align: center;
+    padding: 1%;
+    /* border: red solid; */
+}
+
+.pament_summary {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 35px;
+    line-height: 25px;
+    /* border: red solid; */
+}
+
+.pament_summary>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#leftNav>img
+{
+    width: 100%;
+}
+#leftNav
+{
+    height: 200px;
+}
