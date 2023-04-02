@@ -1,10 +1,19 @@
+body.test{
+    background-color: #faebeb;
+
+}
+
+
+
+
 .login-container {
     width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #da4343;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* padding-top: 100px; */
 }
 
 h1 {
@@ -72,3 +81,4 @@ button[type="submit"]:hover {
     color: blue;
     text-decoration: underline;
 }
+

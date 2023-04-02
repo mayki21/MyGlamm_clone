@@ -1,7 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     /* background-image: url("https://img.freepik.com/premium-photo/blank-green-paper-texture-background-detail-close-up_7190-1234.jpg?w=996"); */
-    background-color:rgb(215, 145, 182)
+    background-color:rgb(243, 207, 226)
  }
 
  .signup-form {
@@ -12,7 +12,7 @@ body {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     /* background-image: url("https://img.freepik.com/premium-photo/blank-green-paper-texture-background_7190-886.jpg?w=996"); */
-    background-color: rgba(200, 32, 116, 0.434);
+    background-color: whitesmoke;
  }
 
  .signup-heading {

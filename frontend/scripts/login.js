@@ -28,12 +28,20 @@ formel.addEventListener("submit",function(e){
         // {
         //     alert("Wrong credentials")
         // }
+    
         
-     
             localStorage.setItem("token",data.token)
             localStorage.setItem("user",data.userdetail)
             alert("Login successfull")
             window.location.href="index.html"
+
+        
+        
+       
+           
+        
+     
+          
         
        
         

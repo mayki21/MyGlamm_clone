@@ -5,13 +5,15 @@ const auth=(req,res,next)=>{
     if(token)
     {
         jwt.verify(token,"kiran",function (err,decoded){
+            console.log(decoded)
             if(decoded)
             {
                 req.body.userID=decoded.userID
+                req.body.quantity=1
                 next()
             }
             else{
-                res.send({"msg":"wring credentials"})
+                res.send({"msg":"wrong credentials"})
             }
         })
     }

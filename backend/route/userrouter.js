@@ -27,6 +27,7 @@ userRouter.post("/register",async(req,res)=>{
 userRouter.post("/login",async (req,res)=>{
     const {email,password}=req.body
     const data=await userModel.findOne({email})
+    console.log(data)
     if(data)
     {
         bcrypt.compare(password,data.password,async (err,result)=>{
@@ -35,7 +36,7 @@ userRouter.post("/login",async (req,res)=>{
                 res.status(200).send({"msg":"Login Successfull","token":jwt.sign({userID:data._id},"kiran",{expiresIn:"6h"}),"userdetail":data})
             }
             else{
-                res.status(404).send({"msg":"wrong credentials"})
+                res.status(400).send({"msg":"wrong credentials"})
             }
         })
     }

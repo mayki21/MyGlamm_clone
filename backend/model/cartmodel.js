@@ -9,7 +9,8 @@ const cartSchema=mongoose.Schema({
     count: String ,
     offerPrice:  Number,
     actualPrice:  Number,
-    userID:String
+    userID:String,
+    quantity:Number
 },{
     versionKey:false
 })
