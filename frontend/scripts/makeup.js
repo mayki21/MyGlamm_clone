@@ -1,116 +1,145 @@
-let box=document.getElementById("a")
+let box = document.getElementById("a")
+
+// let searchbar=document.getElementById("search")
 
 
-let newarr=[];
+let newarr = [];
 fetch("http://localhost:8080/makeup")
-.then((res)=>{
-    return res.json()
-})
-.then((data)=>{
-// console.log(data)
-display(data)
-bar(data)
-newarr=data;
-})
-.catch((err)=>{
-    console.log(err)
-})
-
-function bar()
-{
-    // let searchbar=document.getElementById("search")
-    let search = document.getElementById("search");
-    search.addEventListener("input", (e) => {
-      e.preventDefault();
-      const value = e.target.value;
-    
-      let newArr = data.filter(element => {
-    
-        return element.name.toLowerCase().includes(value)
-    
-      })
-    //   console.log(data)
-      display(newArr)
-    
+    .then((res) => {
+        return res.json()
     })
-}
+    .then((data) => {
+        console.log(data)
+        display(data)
+        // bar(data)
+        searchbar(data)
+        sortbyprice(data)
+        newarr = data;
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+// function bar() {
+//     // let searchbar=document.getElementById("search")
+//     let search = document.getElementById("search");
+//     search.addEventListener("input", (e) => {
+//         e.preventDefault();
+//         const value = e.target.value;
+
+//         let newArr = data.filter(element => {
+
+//             return element.name.toLowerCase().includes(value)
+
+//         })
+//         //   console.log(data)
+//         display(newArr)
+
+//     })
+// }
 
 
 // console.log(data)
-console.log(`newarr: ${newarr}`);
-function display(data){
-    box.innerHTML=""
-    data.map((el)=>{
-        let div=document.createElement("div")
-        let img=document.createElement("img")
-        img.src=el.img
-        let name=document.createElement("h2")
-        name.innerText=el.name
-        let description=document.createElement("p")
-        description.innerText=el.description
-        let price=document.createElement("h4")
-        price.innerText=`Price:- ${el.offerPrice}`
-        let btn=document.createElement("button")
-        btn.innerText="Add To Cart"
+// console.log(`newarr: ${newarr}`);
+function display(data) {
+    box.innerHTML = ""
+    data.map((el) => {
+        let div = document.createElement("div")
+        let img = document.createElement("img")
+        img.src = el.img
+        let name = document.createElement("h2")
+        name.innerText = el.name
+        let description = document.createElement("p")
+        description.innerText = el.description
+        let price = document.createElement("h4")
+        price.innerText = `Price:- ${el.offerPrice}`
+        let btn = document.createElement("button")
+        btn.innerText = "Add To Cart"
 
-        btn.addEventListener('click',function(){
-            let token=localStorage.getItem("token")
-            if(token)
-            {
-                fetch("http://localhost:8080/cart/post",{
-                    method:"POST",
-                    headers:{
-                        "Content-Type":"application/json",
-                        "Authorization":`${localStorage.getItem("token")}`
+        btn.addEventListener('click', function () {
+            let token = localStorage.getItem("token")
+            if (token) {
+                fetch("http://localhost:8080/cart/post", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `${localStorage.getItem("token")}`
                     },
-                    body:JSON.stringify(el)
+                    body: JSON.stringify(el)
                 })
-                .then((res)=>{
-                    return res.json()
-                })
-                .then((data)=>{
-                    if(data.msg=="Data already present")
-                    {
-                        alert("Product already in cart")
-                    }
-                    else
-                    {
-                        console.log(data)
-                        alert("Product added to Cart")
-                    }
-                 
-    
-                })
-                .catch((err)=>{
-                    console.log(err.message)
-                })
+                    .then((res) => {
+                        return res.json()
+                    })
+                    .then((data) => {
+                        if (data.msg == "Data already present") {
+                            alert("Product already in cart")
+                        }
+                        else {
+                            console.log(data)
+                            alert("Product added to Cart")
+                        }
+
+
+                    })
+                    .catch((err) => {
+                        console.log(err.message)
+                    })
             }
-            else
-            {
+            else {
                 alert("kindly login first")
             }
-            
+
         })
 
-       
-        div.append(img,name,description,price,btn)
+
+        div.append(img, name, description, price, btn)
         box.append(div)
     })
 }
 
 
+function sortbyprice(data) {
+    
+    let sortby = document.getElementById("sort")
+    sortby.addEventListener("change", () => {
+        // console.log(sortby.value);
+        if (sortby.value == "asc") {
+            var ascprice = data.sort((a, b) => {
+                return a.offerPrice - b.offerPrice
+            })
+           
+            
+            display(ascprice)
+        } else if (sortby.value == "desc") {
+            var descprice = data.sort((a, b) => { return b.offerPrice - a.offerPrice })
+            display(descprice)
+        } else if(sortby.value == "") {
 
-// function sort(data)
-// {
-  
-// }
-// let btnltoh=document.getElementById("lowtohigh")
-// btnltoh.addEventListener('click',()=>{
-//     let sorted=newarr.sort((a,b)=>{
-//         return a.actualPrice-b.actualPrice
+            display(data)
+            // window.location.reload()
+        }
 
-//       })
-//     //   return data
-//       display(sorted)
+    })
+    
 
-// })
+}
+
+function searchbar(data) {
+    let search = document.getElementById("search");
+    search.addEventListener("input", (e) => {
+        e.preventDefault();
+        const value = e.target.value;
+        
+
+        let newArr = data.filter(element => {
+
+            return element.name.toLowerCase().includes(value) || element.description.toLowerCase().includes(value);
+
+        })
+        display(newArr)
+
+    })
+
+}
+
+

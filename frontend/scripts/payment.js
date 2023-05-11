@@ -60,3 +60,29 @@ paymentBtn.addEventListener("click", ()=>{
         alert("Enter Correct Details");
     }
 })
+
+function sortbyprice(data) {
+    
+    let sortby = document.getElementById("sort")
+    sortby.addEventListener("change", () => {
+        // console.log(sortby.value);
+        if (sortby.value == "asc") {
+            var ascprice = data.sort((a, b) => {
+                return a.offerPrice - b.offerPrice
+            })
+           
+            
+            display(ascprice)
+        } else if (sortby.value == "desc") {
+            var descprice = data.sort((a, b) => { return b.offerPrice - a.offerPrice })
+            display(descprice)
+        } else if(sortby.value == "") {
+
+            display(data)
+            // window.location.reload()
+        }
+
+    })
+    
+
+}

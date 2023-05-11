@@ -7,7 +7,10 @@ fetch("http://localhost:8080/skincare")
 })
 .then((data)=>{
 console.log(data)
+
 display(data)
+sortbyprice(data)
+searchbar(data)
 })
 .catch((err)=>{
     console.log(err)
@@ -73,3 +76,48 @@ function display(data){
         box.append(div)
     })
 }
+
+function sortbyprice(data) {
+    
+    let sortby = document.getElementById("sort")
+    sortby.addEventListener("change", () => {
+        // console.log(sortby.value);
+        if (sortby.value == "asc") {
+            var ascprice = data.sort((a, b) => {
+                return a.offerPrice - b.offerPrice
+            })
+           
+            
+            display(ascprice)
+        } else if (sortby.value == "desc") {
+            var descprice = data.sort((a, b) => { return b.offerPrice - a.offerPrice })
+            display(descprice)
+        } else if(sortby.value == "") {
+
+            display(data)
+            // window.location.reload()
+        }
+
+    })
+    
+
+}
+
+function searchbar(data) {
+    let search = document.getElementById("search");
+    search.addEventListener("input", (e) => {
+        e.preventDefault();
+        const value = e.target.value;
+        
+
+        let newArr = data.filter(element => {
+
+            return element.name.toLowerCase().includes(value) || element.description.toLowerCase().includes(value);
+
+        })
+        display(newArr)
+
+    })
+
+}
+
