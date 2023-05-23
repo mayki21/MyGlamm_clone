@@ -25,6 +25,10 @@ At MyGalMM, women can explore an extensive collection of premium-quality beauty 
  * Products Page
  * Cart Page
  * Payment and Checkout Page
+ 
+ # FUNCTIONALITIES
+ * Searching functionality
+ * Sorting by Price(low to high) & (high to low)
 
 # SCREENSHOTS
 
