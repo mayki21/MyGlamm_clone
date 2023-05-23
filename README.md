@@ -30,6 +30,9 @@ At MyGalMM, women can explore an extensive collection of premium-quality beauty 
  * Searching functionality
  * Sorting by Price(low to high) & (high to low)
 
+# Deployed Server Link
+https://orchid-tuna-yoke.cyclic.app/
+
 # SCREENSHOTS
 
 ## LANDING PAGE
