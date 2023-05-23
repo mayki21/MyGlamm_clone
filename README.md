@@ -58,7 +58,15 @@ At MyGalMM, women can explore an extensive collection of premium-quality beauty 
 
 ![tenskin](https://github.com/mayki21/delicious-vacation-7867/assets/119392202/3adc788e-2b1c-477d-a241-3957c01a454b)
 
-## 
+## CART PAGE
 
+![CART](https://github.com/mayki21/delicious-vacation-7867/assets/119392202/83be8583-378e-4795-b654-45674eee814b)
 
+## CHECKOUT PAGE
+
+![CHEKOUT](https://github.com/mayki21/delicious-vacation-7867/assets/119392202/81faeed4-aa52-4fee-847b-cf07fce88335)
+
+## PAYMENT PAGE
+
+![payment](https://github.com/mayki21/delicious-vacation-7867/assets/119392202/bdfb62ab-0df9-491e-88cf-541ebd2d0fd0)
 
