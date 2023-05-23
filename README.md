@@ -33,6 +33,9 @@ At MyClamm, women can explore an extensive collection of premium-quality beauty 
 # Deployed Server Link
 https://orchid-tuna-yoke.cyclic.app/
 
+# Netlify Link
+https://incomparable-sfogliatella-0fee79.netlify.app/
+
 # SCREENSHOTS
 
 ## LANDING PAGE
