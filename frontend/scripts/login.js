@@ -11,7 +11,7 @@ formel.addEventListener("submit",function(e){
         password:passwordinp.value 
     }
     console.log(obj)
-    fetch("http://localhost:8080/user/login",{
+    fetch("https://orchid-tuna-yoke.cyclic.app/user/login",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

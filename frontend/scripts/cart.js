@@ -3,9 +3,8 @@ const BaseServerUrl = `http://localhost:8080`
 
 var main = document.getElementById('append')
 let fetched=[]
-
-
-  fetch(`${BaseServerUrl}/cart`,{
+ function fetchandrender(){
+  fetch(`http://localhost:8080/cart`,{
     headers :{
         "Content-Type":"application/json",
         "Authorization" : `${localStorage.getItem("token")}`
@@ -15,12 +14,19 @@ let fetched=[]
     return res.json()
 })
 .then((data)=>{
-    console.log(data)
-    appendata(data)
+  console.log(data);
+  let newArray = [...data.lipsticks, ...data.makeups, ...data.skincares]
+  console.log(newArray)
+  appendata(newArray)
 })
 .catch((err)=>{
     console.log(err);
 })
+
+
+ }
+ fetchandrender();
+
 
 
 
@@ -37,7 +43,7 @@ function appendata(data) {
     imgbox.setAttribute("class", "imgbox")
 
     let img = document.createElement("img")
-    img.src = ele.img
+    img.src = ele.data.img
 
     imgbox.append(img)
 
@@ -49,10 +55,10 @@ function appendata(data) {
 
 
     let title = document.createElement("h3")
-    title.innerText = `${ele.name}`
+    title.innerText = `${ele.data.name}`
 
     let price = document.createElement("h3")
-    price.innerText = `Price : ${ele.actualPrice}`
+    price.innerText = `Price : ${ele.data.actualPrice}`
 
 
     hr = document.createElement("hr")
@@ -83,7 +89,7 @@ function appendata(data) {
     // .buttons
 
     let quantity = document.createElement("span");
-    quantity.textContent = `Qty : ${ele.quantity}`;
+    quantity.textContent = `Qty : ${ele.Quantity}`;
 
 
 
@@ -117,8 +123,11 @@ function appendata(data) {
 
       // appendata(LSdata);
     });
+
+
+    
     Increment.addEventListener("click",async () => {
-      fetch(`http://localhost:8080/cart/incpatch/${ele._id}`,{
+      fetch(`http://localhost:8080/cart/inc/${ele._id}`,{
         method:"PATCH",
         headers:{
           "Content-Type":"application/json",
@@ -129,17 +138,21 @@ function appendata(data) {
         return res.json()
       })
       .then((res)=>{
-       quantity.innerText=res.quantity
+      //  quantity.innerText=res.quantity
        console.log(data)
-       window.location.reload()
+      //  window.location.reload()
+      fetchandrender();
       })
       .catch((err)=>{
         console.log(err.message)
       })
 
     });
+
+
+
     decrement.addEventListener("click", () => {
-      fetch(`http://localhost:8080/cart/decpatch/${ele._id}`,{
+      fetch(`http://localhost:8080/cart/dec/${ele._id}`,{
         method:"PATCH",
         headers:{
           "Content-Type":"application/json",
@@ -150,9 +163,10 @@ function appendata(data) {
         return res.json()
       })
       .then((res)=>{
-       quantity.innerText=res.quantity
+      //  quantity.innerText=res.quantity
        console.log(data)
-       window.location.reload()
+      //  window.location.reload()
+      fetchandrender();
       })
       .catch((err)=>{
         console.log(err.message)
@@ -163,7 +177,7 @@ function appendata(data) {
 
     remove.addEventListener("click", () => {
         // console.log("object");
-        fetch(`http://localhost:8080/cart/delete/${ele._id}`, {
+        fetch(`http://localhost:8080/cart/delete/${ele.data._id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -175,11 +189,7 @@ function appendata(data) {
           })
       
         .then((res) => {
-            alert("deleted succesfully")
-            quantity.innerText = res.quantity
-            // console.log(data)
-            window.location.reload()
-            // appendata(data)
+            fetchandrender();
           })
           .catch((err) => {
             console.log(err.message)

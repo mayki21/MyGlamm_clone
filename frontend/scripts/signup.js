@@ -13,7 +13,7 @@ formel.addEventListener("submit",function(e){
         password:passwordinp.value ,
         contact:contactinp.value 
     }
-    fetch("http://localhost:8080/user/register",{
+    fetch("https://orchid-tuna-yoke.cyclic.app/user/register",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

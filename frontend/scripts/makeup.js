@@ -4,7 +4,7 @@ let box = document.getElementById("a")
 
 
 let newarr = [];
-fetch("http://localhost:8080/makeup")
+fetch("https://orchid-tuna-yoke.cyclic.app/makeup")
     .then((res) => {
         return res.json()
     })
@@ -59,7 +59,7 @@ function display(data) {
         btn.addEventListener('click', function () {
             let token = localStorage.getItem("token")
             if (token) {
-                fetch("http://localhost:8080/cart/post", {
+                fetch(`http://localhost:8080/cart/makeup/${el._id}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

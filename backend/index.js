@@ -9,6 +9,7 @@ const lipstickroute = require("./route/lipstickroute")
 const cartroute=require("./route/cartroute")
 const auth=require("./middleware/auth")
 const duplicate=require("./middleware/duplicate")
+const cookieParser = require('cookie-parser');
 
 // const auth=require("./middleware/auth")
 
@@ -22,7 +23,7 @@ app.use("/makeup",makeuproute)
 app.use("/skincare",skincareroute)
 app.use("/lipstick",lipstickroute)
 app.use(auth)
-app.use(duplicate)
+// app.use(duplicate)
 app.use("/cart",cartroute)
 
 
@@ -34,8 +35,15 @@ app.use("/cart",cartroute)
 
 
 app.listen(process.env.port,async()=>{
-    await connection
-    console.log("connected to DB")
+    try {
+        await connection
+        console.log("connected to DB")
+        
+    } catch (error) {
+        
+        console.log(error)
+    }
+   console.log("connect to port 8080")
 })
 
 

@@ -472,3 +472,29 @@ i {
 {
     padding: 20px;
 }
+
+#display-name {
+    display: flex;
+    
+    /* margin-right: 20px; */
+    /* margin-top: 1px; */
+    /* margin-right: 200px; */
+
+  }
+  
+  #display-name img {
+    width: 9vh;
+    border-radius: 50px;
+    margin-left: 10px;
+    height: 3vw;
+    
+  }
+  
+  #display-name h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    margin-top: 25px;
+  }
+  /* #accountcircle{
+    display: none;
+  } */

@@ -1,7 +1,7 @@
 let box=document.getElementById("a")
 
 
-fetch("http://localhost:8080/lipstick")
+fetch("https://orchid-tuna-yoke.cyclic.app/lipstick")
 .then((res)=>{
     return res.json()
 })
@@ -36,7 +36,7 @@ function display(data){
             let token=localStorage.getItem("token")
             if(token)
             {
-                fetch("http://localhost:8080/cart/post",{
+                fetch(`http://localhost:8080/cart/lipstick/${el._id}`,{
                     method:"POST",
                     headers:{
                         "Content-Type":"application/json",
@@ -66,7 +66,7 @@ function display(data){
             }
             else
             {
-                alert(" kindly login first")
+                alert("kindly login first")
             }
           
         })

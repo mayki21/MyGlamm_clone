@@ -21,4 +21,11 @@ lipstickroute.post("/post",async (req,res)=>{
         res.status(400).send({"msg":error.message})
       }
 })
+
+
+
+
+
+
+
 module.exports=lipstickroute
