@@ -1,10 +1,10 @@
-const BaseServerUrl = `http://localhost:8080`
+const BaseServerUrl = `https://myglam-backend.onrender.com`
 
 
 var main = document.getElementById('append')
 let fetched=[]
  function fetchandrender(){
-  fetch(`http://localhost:8080/cart`,{
+  fetch(`https://myglam-backend.onrender.com/cart`,{
     headers :{
         "Content-Type":"application/json",
         "Authorization" : `${localStorage.getItem("token")}`
@@ -127,7 +127,7 @@ function appendata(data) {
 
     
     Increment.addEventListener("click",async () => {
-      fetch(`http://localhost:8080/cart/inc/${ele._id}`,{
+      fetch(`https://myglam-backend.onrender.com/cart/inc/${ele._id}`,{
         method:"PATCH",
         headers:{
           "Content-Type":"application/json",
@@ -152,7 +152,7 @@ function appendata(data) {
 
 
     decrement.addEventListener("click", () => {
-      fetch(`http://localhost:8080/cart/dec/${ele._id}`,{
+      fetch(`https://myglam-backend.onrender.com/cart/dec/${ele._id}`,{
         method:"PATCH",
         headers:{
           "Content-Type":"application/json",
@@ -177,7 +177,7 @@ function appendata(data) {
 
     remove.addEventListener("click", () => {
         // console.log("object");
-        fetch(`http://localhost:8080/cart/delete/${ele.data._id}`, {
+        fetch(`https://myglam-backend.onrender.com/cart/delete/${ele.data._id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

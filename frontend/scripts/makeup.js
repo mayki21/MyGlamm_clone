@@ -4,7 +4,7 @@ let box = document.getElementById("a")
 
 
 let newarr = [];
-fetch("https://orchid-tuna-yoke.cyclic.app/makeup")
+fetch("https://myglam-backend.onrender.com/makeup")
     .then((res) => {
         return res.json()
     })
@@ -59,7 +59,7 @@ function display(data) {
         btn.addEventListener('click', function () {
             let token = localStorage.getItem("token")
             if (token) {
-                fetch(`http://localhost:8080/cart/makeup/${el._id}`, {
+                fetch(`https://myglam-backend.onrender.com/cart/makeup/${el._id}`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

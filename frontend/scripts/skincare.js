@@ -1,7 +1,7 @@
 let box=document.getElementById("a")
 
 
-fetch("https://orchid-tuna-yoke.cyclic.app/skincare")
+fetch("https://myglam-backend.onrender.com/skincare")
 .then((res)=>{
     return res.json()
 })
@@ -36,7 +36,7 @@ function display(data){
             let token=localStorage.getItem("token")
             if(token)
             {
-                fetch(`http://localhost:8080/cart/skincare/${el._id}`,{
+                fetch(`https://myglam-backend.onrender.com/cart/skincare/${el._id}`,{
                     method:"POST",
                     headers:{
                         "Content-Type":"application/json",

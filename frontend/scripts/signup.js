@@ -13,7 +13,7 @@ formel.addEventListener("submit",function(e){
         password:passwordinp.value ,
         contact:contactinp.value 
     }
-    fetch("https://orchid-tuna-yoke.cyclic.app/user/register",{
+    fetch("https://myglam-backend.onrender.com/user/register",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
